@@ -289,18 +289,18 @@ public class SecurityGUI extends javax.swing.JFrame {
         try{
             if(method==1){
                 arrArray = new ArrayList<>();
+                arrArray.add(Double.parseDouble(this.txtThumLength.getText()));
                 arrArray.add(Double.parseDouble(this.txtIndexFingerLength.getText()));
                 arrArray.add(Double.parseDouble(this.txtMiddleFingerLength.getText()));
-                arrArray.add(Double.parseDouble(this.txtPinkieFingerLength.getText()));
                 arrArray.add(Double.parseDouble(this.txtRingFingerLength.getText()));
-                arrArray.add(Double.parseDouble(this.txtThumLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtPinkieFingerLength.getText()));        
             }else if(method==2){
                 arrArray = new ArrayList<>();
+                arrArray.add(Double.parseDouble(this.txtThumbWidth.getText()));
                 arrArray.add(Double.parseDouble(this.txtIndexFingerWidth.getText()));
                 arrArray.add(Double.parseDouble(this.txtMiddleFingerWidth.getText()));
-                arrArray.add(Double.parseDouble(this.txtPinkieFingerWidth.getText()));
                 arrArray.add(Double.parseDouble(this.txtRingFingerWidth.getText()));
-                arrArray.add(Double.parseDouble(this.txtThumbWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtPinkieFingerWidth.getText()));      
             }
             return arrArray;
         }catch(Exception e){

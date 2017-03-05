@@ -56,16 +56,17 @@ public class SearchEngine {
         
         //get the stored values
         ArrayList<Double> arrStoredUserFingerLength = measurements.getFingerLengthArray();
-        ArrayList<Double> arrStoredUserFingerWidth = measurements.getFingerLengthArray();
+        ArrayList<Double> arrStoredUserFingerWidth = measurements.getFingerWidthArray();
         
         //get the input values
         ArrayList<Double> arrInputFingerLength = handMeasurements.getFingerLengthArray();
-        ArrayList<Double> arrInputFingerWidth = handMeasurements.getFingerLengthArray();
+        ArrayList<Double> arrInputFingerWidth = handMeasurements.getFingerWidthArray();
         
         double ratioSum = 0.0;
         double measumentCount = arrInputFingerLength.size() + arrInputFingerWidth.size();
         
         for(int i=0; i<arrStoredUserFingerLength.size();i++){
+            System.out.println("Calculate ratio for " + Double.toString(arrStoredUserFingerLength.get(i)) + " and " + Double.toString(arrInputFingerLength.get(i)));
             ratioSum+=calculateRatio(
                     arrStoredUserFingerLength.get(i),
                     arrInputFingerLength.get(i)
@@ -73,6 +74,7 @@ public class SearchEngine {
         }
         
         for(int i=0; i<arrStoredUserFingerWidth.size();i++){
+            System.out.println("Calculate ratio for " + Double.toString(arrStoredUserFingerWidth.get(i)) + " and " + Double.toString(arrInputFingerWidth.get(i)));
             ratioSum+=calculateRatio(
                     arrStoredUserFingerWidth.get(i),
                     arrInputFingerWidth.get(i)
@@ -84,9 +86,11 @@ public class SearchEngine {
     
     private double calculateRatio(double storedValue, double inputValue){
         //calculate the ratio (ratio < 1)
-        return ((storedValue/inputValue)>1) ? 
+        double ratio = ((storedValue/inputValue)>1) ? 
                 (inputValue/storedValue) : 
                 (storedValue/inputValue);
+        System.out.println(Double.toString(ratio));
+        return ratio;
     }
     
     

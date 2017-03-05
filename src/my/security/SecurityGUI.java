@@ -253,9 +253,23 @@ public class SecurityGUI extends javax.swing.JFrame {
     private void btnAuthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuthActionPerformed
         // Start the auth process
         if(validate_texts()){
-            ArrayList<Float> arrFingerLength = new ArrayList<>();
-            ArrayList<Float> arrFingerWidth = new ArrayList<>();
-            arrFingerLength = initArray(arrFingerLength, METHOD1);
+            // Initialize input arrays
+            ArrayList<Double> arrFingerLength = initArray(METHOD1);
+            ArrayList<Double> arrFingerWidth = initArray(METHOD2);
+            // create measurement model
+            HandMeasurements inputMeasurements = new HandMeasurements(arrFingerLength, arrFingerWidth);
+            
+            //create a search object
+            SearchEngine engine = new SearchEngine(inputMeasurements);
+            
+            //check user existance for given inputs
+            User user = engine.getUser();
+            
+            if(user==null){
+                System.out.println("User Does Not Exist");
+            }else{
+                System.out.println("User Found :- " + user.getFull_name());
+            }
         }else{
             // Show error message
             JOptionPane.showMessageDialog(
@@ -267,32 +281,33 @@ public class SecurityGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAuthActionPerformed
 
-    private ArrayList<Float> initArray(ArrayList<Float> arrArray, int method){
+    private ArrayList<Double> initArray(int method){
+        ArrayList<Double> arrArray = new ArrayList<>();
         // method is for measurements options
         // method 1 --> Finger Length
         // method 2 --> Finger Width
         try{
             if(method==1){
                 arrArray = new ArrayList<>();
-                arrArray.add(Float.parseFloat(this.txtIndexFingerLength.getText()));
-                arrArray.add(Float.parseFloat(this.txtMiddleFingerLength.getText()));
-                arrArray.add(Float.parseFloat(this.txtPinkieFingerLength.getText()));
-                arrArray.add(Float.parseFloat(this.txtRingFingerLength.getText()));
-                arrArray.add(Float.parseFloat(this.txtThumLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtIndexFingerLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtMiddleFingerLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtPinkieFingerLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtRingFingerLength.getText()));
+                arrArray.add(Double.parseDouble(this.txtThumLength.getText()));
             }else if(method==2){
                 arrArray = new ArrayList<>();
-                arrArray.add(Float.parseFloat(this.txtIndexFingerWidth.getText()));
-                arrArray.add(Float.parseFloat(this.txtMiddleFingerWidth.getText()));
-                arrArray.add(Float.parseFloat(this.txtPinkieFingerWidth.getText()));
-                arrArray.add(Float.parseFloat(this.txtRingFingerWidth.getText()));
-                arrArray.add(Float.parseFloat(this.txtThumbWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtIndexFingerWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtMiddleFingerWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtPinkieFingerWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtRingFingerWidth.getText()));
+                arrArray.add(Double.parseDouble(this.txtThumbWidth.getText()));
             }
             return arrArray;
         }catch(Exception e){
             // Show error message
             JOptionPane.showMessageDialog(
                     this,
-                    e.toString(),
+                    "Enter valied inputs only [" + e.toString() + "]",
                     "Error",
                     JOptionPane.ERROR_MESSAGE
             );

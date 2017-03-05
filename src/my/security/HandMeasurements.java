@@ -12,20 +12,27 @@ import java.util.ArrayList;
  * @author prasanna
  */
 public class HandMeasurements {
-    ArrayList<Float> arrFingerLength = new ArrayList<>();
-    ArrayList<Float> arrFingerWidth = new ArrayList<>();
-
-    public HandMeasurements(ArrayList<Float> arrFingerLength,
-                            ArrayList<Float> arrFingerWidth) {
+    ArrayList<Double> arrFingerLength = new ArrayList<>();
+    ArrayList<Double> arrFingerWidth = new ArrayList<>();
+    
+    //---------Array Order -------------
+    //-----> Thumb Length	
+    //-----> Index Finger Length	
+    //-----> Middle Finger Length 
+    //-----> Ring Finger Length	
+    //-----> Pinkie Finger length
+   
+    public HandMeasurements(ArrayList<Double> arrFingerLength,
+                            ArrayList<Double> arrFingerWidth) {
         this.arrFingerLength = arrFingerLength;
         this.arrFingerWidth = arrFingerWidth;
     }
     
-    ArrayList<Float> getFingerLengthArray(){
+    ArrayList<Double> getFingerLengthArray(){
         return arrFingerLength;
     }
     
-    ArrayList<Float> getFingerWidthArray(){
+    ArrayList<Double> getFingerWidthArray(){
         return arrFingerWidth;
     }
 }

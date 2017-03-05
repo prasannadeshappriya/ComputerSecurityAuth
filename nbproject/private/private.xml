@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/prasanna/NetBeansProjects/Security/src/SecurityGUI.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/SecurityGUI.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/SearchEngine.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/User.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/TextFileReader.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/HelpGUI.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/AddUserGUI.java</file>
+            <file>file:/home/prasanna/NetBeansProjects/ComputerSecurityAuth/src/my/security/HandMeasurements.java</file>
         </group>
     </open-files>
 </project-private>

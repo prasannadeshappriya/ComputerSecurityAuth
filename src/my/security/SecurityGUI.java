@@ -83,6 +83,8 @@ public class SecurityGUI extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Security");
+        setAlwaysOnTop(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 102, 0)));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));
@@ -277,14 +279,22 @@ public class SecurityGUI extends javax.swing.JFrame {
             
             if(user==null){
                 System.out.println("User Does Not Exist");
+                JOptionPane.showMessageDialog(
+                    this,
+                    "User does not exist!",
+                    "Auth Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
             }else{
                 System.out.println("User Found :- " + user.getFull_name());
+                new HomeGUI(user.getFull_name()).setVisible(true);
+                this.setVisible(false);
             }
         }else{
             // Show error message
             JOptionPane.showMessageDialog(
                     this,
-                    "Inputs cannot be left empty!.",
+                    "Input values may not valid",
                     "Validate Error",
                     JOptionPane.ERROR_MESSAGE
             );
@@ -331,7 +341,7 @@ public class SecurityGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        TextFileReader.init();
+        new HelpGUI().setVisible(true);
     }//GEN-LAST:event_btnHelpActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -342,16 +352,32 @@ public class SecurityGUI extends javax.swing.JFrame {
     
     private boolean validate_texts(){
         // Check all the inputs are present before proceed
-        if(this.txtThumLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtIndexFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtMiddleFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtRingFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtPinkieFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtThumbWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtIndexFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtMiddleFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtRingFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtPinkieFingerWidth.getText().replace(" ", "").equals("")){return false;}
+        try{
+            if(this.txtThumLength.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtIndexFingerLength.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtMiddleFingerLength.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtRingFingerLength.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtPinkieFingerLength.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtThumbWidth.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtIndexFingerWidth.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtMiddleFingerWidth.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtRingFingerWidth.getText().replace(" ", "").equals("")){return false;}
+            if(this.txtPinkieFingerWidth.getText().replace(" ", "").equals("")){return false;}
+            //to check all inputs are valid inputs
+            double test=0.0;
+            test = Double.parseDouble(txtThumLength.getText().replace(" ", ""));
+            test = Double.parseDouble(txtIndexFingerLength.getText().replace(" ", ""));
+            test = Double.parseDouble(txtMiddleFingerLength.getText().replace(" ", ""));
+            test = Double.parseDouble(txtRingFingerLength.getText().replace(" ", ""));
+            test = Double.parseDouble(txtPinkieFingerLength.getText().replace(" ", ""));
+            test = Double.parseDouble(txtThumbWidth.getText().replace(" ", ""));
+            test = Double.parseDouble(txtIndexFingerWidth.getText().replace(" ", ""));
+            test = Double.parseDouble(txtMiddleFingerWidth.getText().replace(" ", ""));
+            test = Double.parseDouble(txtRingFingerWidth.getText().replace(" ", ""));
+            test = Double.parseDouble(txtPinkieFingerWidth.getText().replace(" ", ""));
+        }catch(Exception e){
+            return false;
+        }
         return true;
     }
     /**

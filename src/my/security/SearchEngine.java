@@ -24,13 +24,17 @@ public class SearchEngine {
         //else null will be returned
         
         //get all stored users
-        ArrayList<User> arrStoredUserArr = FileReader.getStoredUserArray();
+        ArrayList<User> arrStoredUserArr = TextFileReader.getStoredUserArray();
         
         //get threshold value
-        double thresold = FileReader.getThresholdValue();
+        double thresold = TextFileReader.getThresholdValue();
         
         //if file does not contain any users, return null
         if(arrStoredUserArr.isEmpty()){return null;}
+        
+        //Variables for return
+        User retUser = null;
+        Double retConfidence = 0.0;
         
         for(User user:arrStoredUserArr){
             double confidence = calculateConfidence(user.getHandMeasurements());
@@ -41,12 +45,19 @@ public class SearchEngine {
                                 ", Threshold Value :- " + Double.toString(thresold));
             
             if(confidence>=thresold){
-                System.out.println(user.getFull_name() + " User Found");
-                return user;
+                if(retUser==null){
+                    retUser=user;
+                    retConfidence=confidence;
+                }else{
+                    if(retConfidence<confidence){
+                        retUser=user;
+                        retConfidence=confidence;
+                    }
+                }
             }
         }
         
-        return null;
+        return retUser;
     }
     
     private double calculateConfidence(HandMeasurements measurements){
@@ -66,7 +77,6 @@ public class SearchEngine {
         double measumentCount = arrInputFingerLength.size() + arrInputFingerWidth.size();
         
         for(int i=0; i<arrStoredUserFingerLength.size();i++){
-            System.out.println("Calculate ratio for " + Double.toString(arrStoredUserFingerLength.get(i)) + " and " + Double.toString(arrInputFingerLength.get(i)));
             ratioSum+=calculateRatio(
                     arrStoredUserFingerLength.get(i),
                     arrInputFingerLength.get(i)
@@ -74,7 +84,6 @@ public class SearchEngine {
         }
         
         for(int i=0; i<arrStoredUserFingerWidth.size();i++){
-            System.out.println("Calculate ratio for " + Double.toString(arrStoredUserFingerWidth.get(i)) + " and " + Double.toString(arrInputFingerWidth.get(i)));
             ratioSum+=calculateRatio(
                     arrStoredUserFingerWidth.get(i),
                     arrInputFingerWidth.get(i)
@@ -86,11 +95,9 @@ public class SearchEngine {
     
     private double calculateRatio(double storedValue, double inputValue){
         //calculate the ratio (ratio < 1)
-        double ratio = ((storedValue/inputValue)>1) ? 
+        return ((storedValue/inputValue)>1) ? 
                 (inputValue/storedValue) : 
                 (storedValue/inputValue);
-        System.out.println(Double.toString(ratio));
-        return ratio;
     }
     
     

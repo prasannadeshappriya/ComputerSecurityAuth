@@ -7,18 +7,19 @@ package my.security;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author prasanna
  */
-public class SecurityGUI extends javax.swing.JFrame {
+public class AddUserGUI extends javax.swing.JFrame {
 
     private final int METHOD1 = 1;
     private final int METHOD2 = 2;
     /**
-     * Creates new form SecurityGUI
+     * Creates new form AddUserGUI
      */
-    public SecurityGUI() {
+    public AddUserGUI() {
         initComponents();
     }
 
@@ -31,8 +32,6 @@ public class SecurityGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
-        jFrame2 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txtIndexFingerWidth = new javax.swing.JTextField();
@@ -57,30 +56,10 @@ public class SecurityGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
-        btnAuth = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
-        jFrame2.getContentPane().setLayout(jFrame2Layout);
-        jFrame2Layout.setHorizontalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jFrame2Layout.setVerticalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        btnSave = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,17 +174,10 @@ public class SecurityGUI extends javax.swing.JFrame {
             }
         });
 
-        btnAuth.setText("Authenticate");
-        btnAuth.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAuthActionPerformed(evt);
-            }
-        });
-
-        btnAdd.setText("Add User");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -214,10 +186,8 @@ public class SecurityGUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(486, Short.MAX_VALUE)
-                .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAuth)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHelp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -231,65 +201,102 @@ public class SecurityGUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExit)
                     .addComponent(btnHelp)
-                    .addComponent(btnAuth)
-                    .addComponent(btnAdd))
+                    .addComponent(btnSave))
                 .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 102, 0)));
+
+        jLabel11.setText("Name");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(219, 219, 219)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(37, 37, 37)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAuthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuthActionPerformed
-        // Start the auth process
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // Exit the window and end process
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        TextFileReader.init();
+    }//GEN-LAST:event_btnHelpActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if(validate_texts()){
             // Initialize input arrays
             ArrayList<Double> arrFingerLength = initArray(METHOD1);
             ArrayList<Double> arrFingerWidth = initArray(METHOD2);
-            // create measurement model
-            HandMeasurements inputMeasurements = new HandMeasurements(arrFingerLength, arrFingerWidth);
             
-            //create a search object
-            SearchEngine engine = new SearchEngine(inputMeasurements);
+            User user = new User(
+                    new HandMeasurements(arrFingerLength, arrFingerWidth),
+                    txtName.getText()
+            );
+            // Store new user
+            TextFileReader.store(user);
             
-            //check user existance for given inputs
-            User user = engine.getUser();
-            
-            if(user==null){
-                System.out.println("User Does Not Exist");
-            }else{
-                System.out.println("User Found :- " + user.getFull_name());
-            }
+            // Show message
+            JOptionPane.showMessageDialog(
+                this,
+                "User successfully created!.",
+                "Security",
+                JOptionPane.PLAIN_MESSAGE
+            );
         }else{
             // Show error message
             JOptionPane.showMessageDialog(
-                    this,
-                    "Inputs cannot be left empty!.",
-                    "Validate Error",
-                    JOptionPane.ERROR_MESSAGE
+                this,
+                "Inputs cannot be left empty!.",
+                "Validate Error",
+                JOptionPane.ERROR_MESSAGE
             );
+            this.setVisible(false);
         }
-    }//GEN-LAST:event_btnAuthActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private ArrayList<Double> initArray(int method){
         ArrayList<Double> arrArray = new ArrayList<>();
@@ -325,35 +332,6 @@ public class SecurityGUI extends javax.swing.JFrame {
         }
     }
     
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // Exit the window and end process
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        TextFileReader.init();
-    }//GEN-LAST:event_btnHelpActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        //Open add user dialog
-        //this.setVisible(false);
-        new AddUserGUI().setVisible(true);
-    }//GEN-LAST:event_btnAddActionPerformed
-    
-    private boolean validate_texts(){
-        // Check all the inputs are present before proceed
-        if(this.txtThumLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtIndexFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtMiddleFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtRingFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtPinkieFingerLength.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtThumbWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtIndexFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtMiddleFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtRingFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        if(this.txtPinkieFingerWidth.getText().replace(" ", "").equals("")){return false;}
-        return true;
-    }
     /**
      * @param args the command line arguments
      */
@@ -371,34 +349,47 @@ public class SecurityGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SecurityGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddUserGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SecurityGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddUserGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SecurityGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddUserGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SecurityGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddUserGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SecurityGUI().setVisible(true);
-                TextFileReader.init();
+                new AddUserGUI().setVisible(true);
             }
         });
     }
+    
+    private boolean validate_texts(){
+        // Check all the inputs are present before proceed
+        if(this.txtName.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtThumLength.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtIndexFingerLength.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtMiddleFingerLength.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtRingFingerLength.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtPinkieFingerLength.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtThumbWidth.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtIndexFingerWidth.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtMiddleFingerWidth.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtRingFingerWidth.getText().replace(" ", "").equals("")){return false;}
+        if(this.txtPinkieFingerWidth.getText().replace(" ", "").equals("")){return false;}
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAuth;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHelp;
-    private javax.swing.JFrame jFrame1;
-    private javax.swing.JFrame jFrame2;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -409,10 +400,12 @@ public class SecurityGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtIndexFingerLength;
     private javax.swing.JTextField txtIndexFingerWidth;
     private javax.swing.JTextField txtMiddleFingerLength;
     private javax.swing.JTextField txtMiddleFingerWidth;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPinkieFingerLength;
     private javax.swing.JTextField txtPinkieFingerWidth;
     private javax.swing.JTextField txtRingFingerLength;

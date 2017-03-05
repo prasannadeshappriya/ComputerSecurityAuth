@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author prasanna
  */
 public class HandMeasurements {
-    ArrayList<Double> arrFingerLength = new ArrayList<>();
-    ArrayList<Double> arrFingerWidth = new ArrayList<>();
+    private ArrayList<Double> arrFingerLength = new ArrayList<>();
+    private ArrayList<Double> arrFingerWidth = new ArrayList<>();
     
     //---------Array Order -------------
     //-----> Thumb Length	

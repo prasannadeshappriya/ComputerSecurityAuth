@@ -5,7 +5,7 @@
  */
 package my.security;
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class SecurityGUI extends javax.swing.JFrame {
 
+    private final int METHOD1 = 1;
+    private final int METHOD2 = 2;
     /**
      * Creates new form SecurityGUI
      */
@@ -251,9 +253,11 @@ public class SecurityGUI extends javax.swing.JFrame {
     private void btnAuthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuthActionPerformed
         // Start the auth process
         if(validate_texts()){
-            
+            ArrayList<Float> arrFingerLength = new ArrayList<>();
+            ArrayList<Float> arrFingerWidth = new ArrayList<>();
+            arrFingerLength = initArray(arrFingerLength, METHOD1);
         }else{
-            
+            // Show error message
             JOptionPane.showMessageDialog(
                     this,
                     "Inputs cannot be left empty!.",
@@ -263,6 +267,39 @@ public class SecurityGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAuthActionPerformed
 
+    private ArrayList<Float> initArray(ArrayList<Float> arrArray, int method){
+        // method is for measurements options
+        // method 1 --> Finger Length
+        // method 2 --> Finger Width
+        try{
+            if(method==1){
+                arrArray = new ArrayList<>();
+                arrArray.add(Float.parseFloat(this.txtIndexFingerLength.getText()));
+                arrArray.add(Float.parseFloat(this.txtMiddleFingerLength.getText()));
+                arrArray.add(Float.parseFloat(this.txtPinkieFingerLength.getText()));
+                arrArray.add(Float.parseFloat(this.txtRingFingerLength.getText()));
+                arrArray.add(Float.parseFloat(this.txtThumLength.getText()));
+            }else if(method==2){
+                arrArray = new ArrayList<>();
+                arrArray.add(Float.parseFloat(this.txtIndexFingerWidth.getText()));
+                arrArray.add(Float.parseFloat(this.txtMiddleFingerWidth.getText()));
+                arrArray.add(Float.parseFloat(this.txtPinkieFingerWidth.getText()));
+                arrArray.add(Float.parseFloat(this.txtRingFingerWidth.getText()));
+                arrArray.add(Float.parseFloat(this.txtThumbWidth.getText()));
+            }
+            return arrArray;
+        }catch(Exception e){
+            // Show error message
+            JOptionPane.showMessageDialog(
+                    this,
+                    e.toString(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return null;
+        }
+    }
+    
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // Exit the window and end process
         System.exit(0);
